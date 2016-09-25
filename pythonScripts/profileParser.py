@@ -4,7 +4,7 @@ import urllib2
 from re import sub
 from decimal import Decimal
 
-responseCall 	= urllib2.urlopen('http://steamcommunity.com/id/sinbra/inventory/json/753/6')
+responseCall 	= urllib2.urlopen('http://steamcommunity.com/id/sinbra/inventory/json/753/6?key=D5CC74537199F7826568783938D2C438&format=json')
 jsonResponse 	= responseCall.read()
 jsonData 		= json.loads(jsonResponse);
 totalPrice		= 0.0
@@ -32,7 +32,7 @@ else:
 			marketHash	= itemObj["market_hash_name"];
 			typeItem	= itemObj["type"];
 
-			itemCall 	= urllib2.urlopen('http://steamcommunity.com/market/priceoverview/?currency=3&appid=' + str(appid) + '&market_hash_name=' + urllib.quote(str(marketHash)));
+			itemCall 	= urllib2.urlopen('http://steamcommunity.com/market/priceoverview/?currency=3&appid=' + str(appid) + '&market_hash_name=' + urllib.quote(str(marketHash)) + '?key=D5CC74537199F7826568783938D2C438&format=json');
 			itemResp 	= itemCall.read();
 			itemData 	= json.loads(itemResp);
 
